@@ -2,30 +2,25 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Document Not Found (404)">
-  <div class="max-w-xl mx-auto px-4 py-28 text-center">
-    <div class="relative inline-flex items-center justify-center mb-6">
-      <div class="absolute -inset-2 rounded-3xl bg-gradient-to-r from-[#3245ff] to-[#bc52ee] opacity-50 blur-xl"></div>
-      <div class="relative w-24 h-24 rounded-3xl astro-card flex items-center justify-center text-4xl font-extrabold text-white">
-        404
-      </div>
+<BaseLayout title="Page Not Found (404)" currentPath="/404">
+  <div class="max-w-xl mx-auto py-20 text-center">
+    <div class="inline-block p-3 rounded-2xl bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 font-mono text-2xl font-bold mb-4">
+      404
     </div>
 
-    <h1 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight mb-3">
-      Legal Page Not Found
+    <h1 class="text-2xl font-bold text-slate-900 dark:text-white mb-2">
+      Document or App Not Found
     </h1>
 
-    <p class="text-sm sm:text-base text-zinc-400 mb-8 leading-relaxed">
-      The legal document, policy, or application you are looking for does not exist, has been archived, or the link may have been updated.
+    <p class="text-sm text-slate-600 dark:text-slate-400 mb-6">
+      The legal document, policy, or application you are looking for does not exist or has been moved.
     </p>
 
-    <div class="flex items-center justify-center gap-4">
-      <a
-        href="/"
-        class="inline-flex items-center justify-center px-6 py-3 rounded-xl text-white font-semibold text-sm bg-gradient-to-r from-[#3245ff] to-[#bc52ee] hover:opacity-95 shadow-[0_0_25px_-5px_rgba(188,82,238,0.5)] transition-all hover:scale-[1.02]"
-      >
-        <span>← Return to Legal Center</span>
-      </a>
-    </div>
+    <a
+      href="/"
+      class="inline-flex items-center gap-1.5 text-xs font-medium px-4 py-2 rounded-lg bg-slate-900 text-white dark:bg-white dark:text-slate-900 hover:opacity-90 transition-opacity"
+    >
+      <span>← Return to All Applications</span>
+    </a>
   </div>
 </BaseLayout>

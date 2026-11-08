@@ -8,50 +8,34 @@ interface Props {
 
 const { appData } = Astro.props;
 const { app, documents } = appData;
-
-function getBadgeStyle(slug: string) {
-  switch (slug) {
-    case 'privacy':
-      return 'bg-emerald-500/10 text-emerald-300 border-emerald-500/30 hover:border-emerald-400 hover:bg-emerald-500/20 hover:shadow-[0_0_12px_rgba(16,185,129,0.2)]';
-    case 'terms':
-      return 'bg-purple-500/10 text-purple-300 border-purple-500/30 hover:border-purple-400 hover:bg-purple-500/20 hover:shadow-[0_0_12px_rgba(168,85,247,0.2)]';
-    case 'data-deletion':
-      return 'bg-rose-500/10 text-rose-300 border-rose-500/30 hover:border-rose-400 hover:bg-rose-500/20 hover:shadow-[0_0_12px_rgba(244,63,94,0.2)]';
-    case 'support':
-      return 'bg-amber-500/10 text-amber-300 border-amber-500/30 hover:border-amber-400 hover:bg-amber-500/20 hover:shadow-[0_0_12px_rgba(245,158,11,0.2)]';
-    default:
-      return 'bg-blue-500/10 text-blue-300 border-blue-500/30 hover:border-blue-400 hover:bg-blue-500/20';
-  }
-}
 ---
 
 <div
-  class="app-card astro-card group relative flex flex-col justify-between p-6 sm:p-7 rounded-2xl"
+  class="app-card flex flex-col justify-between p-5 sm:p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#111827] hover:border-slate-300 dark:hover:border-slate-700 transition-all shadow-sm"
   data-name={app.name.toLowerCase()}
   data-package={app.packageName?.toLowerCase() || ''}
   data-desc={app.description?.toLowerCase() || ''}
 >
   <div>
     <!-- Top Row: Icon + Name + Package -->
-    <div class="flex items-start gap-4 mb-4">
-      <div class="w-14 h-14 rounded-2xl flex-shrink-0 flex items-center justify-center overflow-hidden border border-white/10 bg-[#181b22] shadow-inner p-1">
+    <div class="flex items-start gap-3.5 mb-3">
+      <div class="w-12 h-12 rounded-xl flex-shrink-0 flex items-center justify-center overflow-hidden border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 p-1">
         {app.icon ? (
-          <img src={app.icon} alt={`${app.name} icon`} class="w-full h-full object-contain rounded-xl" />
+          <img src={app.icon} alt={`${app.name} icon`} class="w-full h-full object-contain" />
         ) : (
-          <span class="text-xl font-bold bg-gradient-to-br from-white to-zinc-400 bg-clip-text text-transparent">
+          <span class="text-lg font-bold text-slate-700 dark:text-slate-300">
             {app.name.charAt(0).toUpperCase()}
           </span>
         )}
       </div>
 
       <div class="flex-1 min-w-0">
-        <h3 class="text-lg font-bold text-white truncate group-hover:text-purple-300 transition-colors">
+        <h3 class="text-base font-semibold text-slate-900 dark:text-slate-100 truncate">
           {app.name}
         </h3>
         {app.packageName && (
-          <p class="text-xs font-mono text-zinc-400 truncate mt-1 flex items-center gap-1.5" title={app.packageName}>
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span>{app.packageName}</span>
+          <p class="text-xs font-mono text-slate-500 dark:text-slate-400 truncate mt-0.5" title={app.packageName}>
+            {app.packageName}
           </p>
         )}
       </div>
@@ -59,34 +43,25 @@ function getBadgeStyle(slug: string) {
 
     <!-- Description -->
     {app.description && (
-      <p class="text-sm text-zinc-400 line-clamp-2 mb-6 leading-relaxed">
+      <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 line-clamp-2 mb-4 leading-relaxed">
         {app.description}
       </p>
     )}
   </div>
 
-  <!-- Document Links / Badges -->
-  <div class="pt-4 border-t border-white/[0.08]">
-    <div class="flex items-center justify-between mb-2.5">
-      <span class="text-[11px] font-mono uppercase tracking-wider text-zinc-500">
-        Verified Legal Pages
-      </span>
-      <span class="text-[11px] text-zinc-500 font-mono">
-        {documents.length} docs
-      </span>
+  <!-- Document Links -->
+  <div class="pt-3.5 border-t border-slate-100 dark:border-slate-800">
+    <div class="text-[11px] font-mono uppercase tracking-wider text-slate-400 mb-2">
+      Policies & Documents
     </div>
-
-    <div class="flex flex-wrap gap-2">
+    <div class="flex flex-wrap gap-1.5">
       {documents.map((doc) => (
         <a
           href={`/${app.slug}/${doc.slug}`}
-          class:list={[
-            "inline-flex items-center text-xs font-medium px-3 py-1.5 rounded-lg border transition-all duration-200",
-            getBadgeStyle(doc.slug)
-          ]}
+          class="inline-flex items-center text-xs font-medium px-2.5 py-1 rounded-md border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
         >
           <span>{doc.title || formatDocTitle(doc.slug)}</span>
-          <span class="ml-1.5 opacity-60 group-hover:translate-x-0.5 transition-transform">→</span>
+          <span class="ml-1 opacity-50">→</span>
         </a>
       ))}
     </div>

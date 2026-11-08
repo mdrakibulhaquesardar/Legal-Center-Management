@@ -1,6 +1,6 @@
 ---
 import { siteConfig } from '../config/site';
-import astroLogo from '../assets/astro.svg';
+import ThemeToggle from './ThemeToggle.astro';
 
 interface Props {
   currentPath?: string;
@@ -9,43 +9,49 @@ interface Props {
 const { currentPath = '/' } = Astro.props;
 ---
 
-<header class="sticky top-0 z-40 w-full border-b border-white/[0.08] bg-[#0d0f14]/80 backdrop-blur-xl transition-all no-print">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-    <!-- Brand / Logo -->
-    <a href="/" class="flex items-center gap-3 group">
-      <!-- Astro Gradient Icon Glow -->
-      <div class="relative flex items-center justify-center">
-        <div class="absolute -inset-1 rounded-xl bg-gradient-to-r from-[#3245ff] to-[#bc52ee] opacity-60 blur-sm group-hover:opacity-100 transition duration-300"></div>
-        <div class="relative w-9 h-9 rounded-xl bg-[#13161c] border border-white/10 flex items-center justify-center p-1.5 shadow-md">
-          <img src={astroLogo.src} alt="Astro" class="w-full h-full object-contain" />
-        </div>
-      </div>
+<header class="sticky top-0 z-30 w-full bg-white/90 dark:bg-[#0b0f17]/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors no-print">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-14">
+    <!-- Brand Title & Mobile Toggle -->
+    <div class="flex items-center gap-3">
+      <!-- Mobile sidebar toggle button -->
+      <button
+        id="mobile-menu-btn"
+        type="button"
+        class="md:hidden p-1.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none"
+        aria-label="Open documentation sidebar"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
 
-      <div>
-        <div class="flex items-center gap-2">
-          <span class="font-bold text-white text-base sm:text-lg tracking-tight group-hover:text-purple-300 transition-colors">
+      <a href="/" class="flex items-center gap-2.5 group">
+        <span class="w-7 h-7 rounded-lg bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 flex items-center justify-center font-bold text-xs shadow-sm">
+          §
+        </span>
+        <div class="flex items-baseline gap-2">
+          <span class="font-semibold text-slate-900 dark:text-slate-100 text-base tracking-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
             {siteConfig.developerName}
           </span>
-          <span class="text-[10px] font-mono uppercase tracking-wider px-1.5 py-0.5 rounded bg-purple-500/10 text-purple-300 border border-purple-500/30">
-            Legal
+          <span class="hidden sm:inline-block text-xs font-mono text-slate-500 dark:text-slate-400">
+            / Legal Center
           </span>
         </div>
-        <span class="block text-xs text-zinc-400 font-normal">
-          Compliance & Document Portal
-        </span>
-      </div>
-    </a>
+      </a>
+    </div>
 
-    <!-- Navigation & Links -->
-    <nav class="flex items-center gap-3 sm:gap-6">
+    <!-- Right Side Actions & Theme Toggle -->
+    <div class="flex items-center gap-2 sm:gap-4">
       <a
         href="/"
         class:list={[
-          "text-sm font-medium transition-colors hover:text-white",
-          currentPath === "/" ? "text-purple-400 font-semibold" : "text-zinc-400"
+          "text-xs sm:text-sm font-medium px-2.5 py-1 rounded-md transition-colors",
+          currentPath === "/"
+            ? "text-slate-900 dark:text-white bg-slate-100 dark:bg-slate-800"
+            : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
         ]}
       >
-        Applications
+        All Apps
       </a>
 
       {siteConfig.websiteUrl && (
@@ -53,25 +59,28 @@ const { currentPath = '/' } = Astro.props;
           href={siteConfig.websiteUrl}
           target="_blank"
           rel="noopener noreferrer"
-          class="hidden sm:inline-flex items-center gap-1 text-sm font-medium text-zinc-400 hover:text-white transition-colors"
+          class="hidden sm:inline-flex items-center gap-1 text-xs sm:text-sm text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
         >
-          <span>Studio</span>
-          <span class="text-xs opacity-60">↗</span>
+          <span>Website</span>
+          <span class="text-[10px]">↗</span>
         </a>
       )}
 
-      <!-- Astro Gradient Primary Action -->
       {siteConfig.playStoreUrl && (
         <a
           href={siteConfig.playStoreUrl}
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center gap-1.5 text-xs font-semibold px-3.5 py-1.5 rounded-lg text-white bg-gradient-to-r from-[#3245ff] to-[#bc52ee] hover:opacity-95 shadow-[0_0_20px_-3px_rgba(188,82,238,0.4)] transition-all hover:scale-[1.02] active:scale-[0.98]"
+          class="hidden sm:inline-flex items-center gap-1 text-xs sm:text-sm text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
         >
-          <span>Play Store</span>
-          <span>↗</span>
+          <span>Google Play</span>
+          <span class="text-[10px]">↗</span>
         </a>
       )}
-    </nav>
+
+      <div class="h-4 w-px bg-slate-200 dark:bg-slate-800 mx-1"></div>
+
+      <ThemeToggle />
+    </div>
   </div>
 </header>

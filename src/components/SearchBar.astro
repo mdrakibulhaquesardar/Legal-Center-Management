@@ -1,48 +1,35 @@
 ---
-// SearchBar.astro (Astro Documentation Theme)
+// SearchBar.astro (Fresh & Simple)
 ---
 
-<div class="w-full max-w-xl mx-auto mb-12 no-print">
-  <div class="relative group">
-    <!-- Subtle glow behind input on focus -->
-    <div class="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-[#3245ff] to-[#bc52ee] opacity-0 group-focus-within:opacity-40 blur-md transition duration-300"></div>
-
-    <div class="relative flex items-center">
-      <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-zinc-400 group-focus-within:text-purple-400 transition-colors">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-        </svg>
-      </div>
-
-      <input
-        id="search-input"
-        type="search"
-        placeholder="Filter applications by name, keyword, or package ID..."
-        autocomplete="off"
-        class="w-full pl-12 pr-24 py-3.5 text-sm rounded-xl border border-white/10 bg-[#13161c]/90 text-white placeholder-zinc-500 shadow-2xl focus:outline-none focus:border-purple-500/50 transition-all backdrop-blur-xl"
-      />
-
-      <!-- Shortcut Badge -->
-      <div class="absolute right-3.5 flex items-center gap-1.5 pointer-events-none">
-        <kbd class="hidden sm:inline-block px-2 py-0.5 text-[10px] font-mono text-zinc-400 bg-white/[0.06] border border-white/10 rounded">
-          /
-        </kbd>
-      </div>
-
-      <button
-        id="search-clear"
-        type="button"
-        class="hidden absolute right-10 pr-2 flex items-center text-zinc-400 hover:text-white"
-        aria-label="Clear search"
-      >
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-        </svg>
-      </button>
+<div class="w-full mb-8 no-print">
+  <div class="relative">
+    <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+      </svg>
     </div>
+
+    <input
+      id="search-input"
+      type="search"
+      placeholder="Filter applications by name, keyword, or package ID..."
+      class="w-full pl-10 pr-10 py-2.5 text-sm rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#111827] text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 transition-colors shadow-sm"
+    />
+
+    <button
+      id="search-clear"
+      type="button"
+      class="hidden absolute inset-y-0 right-0 pr-3.5 flex items-center text-slate-400 hover:text-slate-600 dark:hover:text-slate-200"
+      aria-label="Clear search"
+    >
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
   </div>
 
-  <div id="search-status" class="mt-2.5 text-xs text-zinc-400 px-2 flex justify-between items-center font-mono">
+  <div id="search-status" class="mt-2 text-xs text-slate-500 dark:text-slate-400 px-1 font-mono flex justify-between items-center">
     <span id="match-count"></span>
   </div>
 </div>
@@ -82,7 +69,7 @@
     if (query) {
       matchCount.textContent = `Showing ${visibleCount} of ${appCards.length} applications`;
     } else {
-      matchCount.textContent = `Directory: ${appCards.length} live apps`;
+      matchCount.textContent = `Total ${appCards.length} applications`;
     }
 
     if (emptyState) {
@@ -94,16 +81,8 @@
     }
   }
 
-  // Keyboard shortcut '/' to focus search
-  window.addEventListener('keydown', (e) => {
-    if (e.key === '/' && document.activeElement !== searchInput) {
-      e.preventDefault();
-      searchInput?.focus();
-    }
-  });
-
   if (matchCount) {
-    matchCount.textContent = `Directory: ${appCards.length} live apps`;
+    matchCount.textContent = `Total ${appCards.length} applications`;
   }
 
   searchInput?.addEventListener('input', performSearch);

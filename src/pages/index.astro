@@ -4,91 +4,70 @@ import AppCard from '../components/AppCard.astro';
 import SearchBar from '../components/SearchBar.astro';
 import { getActiveApps } from '../lib/apps';
 import { siteConfig } from '../config/site';
-import astroLogo from '../assets/astro.svg';
 
 const activeApps = getActiveApps();
 const totalDocs = activeApps.reduce((acc, curr) => acc + curr.documents.length, 0);
 ---
 
-<BaseLayout title={siteConfig.title} description={siteConfig.description}>
-  <!-- Hero Section (Astro Theme) -->
-  <section class="relative py-16 sm:py-24 overflow-hidden">
-    <!-- Top Radial Glow -->
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-purple-500/10 blur-[100px] pointer-events-none rounded-full"></div>
-
-    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <!-- Astro Badge -->
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono bg-purple-500/10 text-purple-300 border border-purple-500/30 mb-8 backdrop-blur-md shadow-[0_0_15px_-3px_rgba(188,82,238,0.3)]">
-        <img src={astroLogo.src} alt="" class="w-3.5 h-3.5 object-contain" />
-        <span>Google Play Verified • Permanent Legal Repository</span>
+<BaseLayout title={siteConfig.title} description={siteConfig.description} currentPath="/">
+  <div class="max-w-4xl py-2">
+    <!-- Intro / Header (astro-design-system style) -->
+    <div class="mb-8 pb-6 border-b border-slate-200 dark:border-slate-800">
+      <div class="flex items-center gap-2 text-xs font-mono text-slate-500 dark:text-slate-400 mb-2">
+        <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+        <span>Google Play Compliance • Active Documentation</span>
       </div>
 
-      <!-- Main Headline with Astro Gradient -->
-      <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white mb-6">
-        Privacy, Terms & <br class="hidden sm:inline" />
-        <span class="astro-gradient-text">Compliance Center</span>
+      <h1 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight mb-2">
+        Applications Legal Directory
       </h1>
 
-      <p class="text-base sm:text-lg text-zinc-400 max-w-2xl mx-auto leading-relaxed mb-10">
-        Official, permanent legal documentation repository for Android and Flutter applications built by <span class="text-white font-medium">{siteConfig.developerName}</span>. Fast, verified, and continuously deployed with Astro SSG.
+      <p class="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">
+        Official, permanent legal documentation repository for Android and Flutter applications developed by <span class="font-medium text-slate-900 dark:text-white">{siteConfig.developerName}</span>. Select any application below to review its Privacy Policy, Terms of Service, or Data Deletion guidelines.
       </p>
 
-      <!-- Glassmorphic Stats Pill -->
-      <div class="inline-flex items-center justify-center gap-6 sm:gap-10 py-3.5 px-8 rounded-2xl bg-[#13161c]/80 border border-white/10 shadow-2xl backdrop-blur-xl text-xs sm:text-sm font-mono">
-        <div class="flex items-center gap-2">
-          <span class="font-bold text-white text-base sm:text-lg">{activeApps.length}</span>
-          <span class="text-zinc-500">Live Apps</span>
+      <!-- Quick Metrics Bar -->
+      <div class="flex items-center gap-6 mt-4 text-xs font-mono text-slate-500 dark:text-slate-400">
+        <div>
+          <span class="font-bold text-slate-900 dark:text-white">{activeApps.length}</span> Applications
         </div>
-        <div class="h-4 w-px bg-white/10"></div>
-        <div class="flex items-center gap-2">
-          <span class="font-bold text-purple-400 text-base sm:text-lg">{totalDocs}</span>
-          <span class="text-zinc-500">Legal Documents</span>
+        <span>•</span>
+        <div>
+          <span class="font-bold text-slate-900 dark:text-white">{totalDocs}</span> Documents
         </div>
-        <div class="h-4 w-px bg-white/10"></div>
-        <div class="flex items-center gap-2">
-          <span class="font-bold text-emerald-400 text-base sm:text-lg">100%</span>
-          <span class="text-zinc-500">Static / SSG</span>
+        <span>•</span>
+        <div>
+          Static Generation (SSG)
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- Applications Directory -->
-  <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-    <!-- Live Search Bar -->
+    <!-- Search Bar -->
     <SearchBar />
 
     <!-- Application Grid -->
     {activeApps.length > 0 ? (
-      <div id="apps-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div id="apps-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {activeApps.map((appData) => (
           <AppCard appData={appData} />
         ))}
       </div>
     ) : (
-      <div class="text-center py-20 px-4 astro-card rounded-3xl border border-dashed border-white/10">
-        <p class="text-base font-medium text-white mb-1">
+      <div class="text-center py-12 px-4 rounded-xl border border-dashed border-slate-200 dark:border-slate-800">
+        <p class="text-sm font-medium text-slate-700 dark:text-slate-300">
           No applications registered yet
-        </p>
-        <p class="text-xs text-zinc-500 font-mono">
-          Create an app folder in <code class="text-purple-300">apps/&lt;app-slug&gt;/app.json</code> to register it automatically.
         </p>
       </div>
     )}
 
     <!-- Empty Search State -->
-    <div id="empty-search-state" class="hidden text-center py-20 px-4">
-      <div class="w-14 h-14 mx-auto rounded-2xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-zinc-400 mb-4">
-        <svg class="w-7 h-7 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-        </svg>
-      </div>
-      <p class="text-lg font-bold text-white">
+    <div id="empty-search-state" class="hidden text-center py-12 px-4">
+      <p class="text-base font-semibold text-slate-900 dark:text-white">
         No matching applications found
       </p>
-      <p class="text-xs text-zinc-500 mt-1 font-mono">
-        Try typing another keyword or clear the search query.
+      <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">
+        Try adjusting your search query or clear the filter.
       </p>
     </div>
-  </section>
+  </div>
 </BaseLayout>

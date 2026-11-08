@@ -1,64 +1,27 @@
 ---
 import { siteConfig } from '../config/site';
-import astroLogo from '../assets/astro.svg';
 
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="mt-auto border-t border-white/[0.08] bg-[#090b0f]/80 backdrop-blur-xl transition-colors no-print">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-    <div class="flex flex-col md:flex-row items-center justify-between gap-6 text-sm text-zinc-400">
-      <!-- Left side: Brand & Info -->
-      <div class="flex flex-col items-center md:items-start gap-1.5">
-        <div class="flex items-center gap-2">
-          <span class="font-semibold text-white">{siteConfig.developerName}</span>
-          <span class="text-zinc-600">•</span>
-          <span class="text-xs text-zinc-400">Legal Center</span>
-        </div>
-        <p class="text-xs text-zinc-500">
-          © {currentYear} {siteConfig.developerName}. All permanent legal records preserved.
-        </p>
-      </div>
+<footer class="mt-auto border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0b0f17] text-xs text-slate-500 dark:text-slate-400 py-6 no-print">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-2">
+      <span class="font-medium text-slate-800 dark:text-slate-200">{siteConfig.developerName}</span>
+      <span>•</span>
+      <span>Legal Documentation Portal</span>
+    </div>
 
-      <!-- Center: Powered by Astro Badge -->
-      <a
-        href="https://astro.build"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 text-xs text-zinc-300 transition-all hover:border-purple-500/40"
-      >
-        <span class="text-zinc-500">Built with</span>
-        <img src={astroLogo.src} alt="Astro" class="h-3.5 w-auto" />
-        <span class="font-semibold text-white">Astro</span>
-      </a>
-
-      <!-- Right side: Links -->
-      <div class="flex flex-wrap items-center justify-center gap-6 text-xs">
-        {siteConfig.developerEmail && (
-          <a
-            href={`mailto:${siteConfig.developerEmail}`}
-            class="text-zinc-400 hover:text-purple-300 transition-colors"
-          >
-            {siteConfig.developerEmail}
-          </a>
-        )}
-        {siteConfig.websiteUrl && (
-          <a
-            href={siteConfig.websiteUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-zinc-400 hover:text-white transition-colors"
-          >
-            nexcode.studio ↗
-          </a>
-        )}
-        <a
-          href="#"
-          class="text-zinc-500 hover:text-zinc-300 transition-colors"
-        >
-          Top ↑
+    <div class="flex items-center gap-6">
+      {siteConfig.developerEmail && (
+        <a href={`mailto:${siteConfig.developerEmail}`} class="hover:text-slate-900 dark:hover:text-white transition-colors">
+          {siteConfig.developerEmail}
         </a>
-      </div>
+      )}
+      <span>© {currentYear}</span>
+      <a href="#" class="hover:text-slate-900 dark:hover:text-white transition-colors">
+        Back to top ↑
+      </a>
     </div>
   </div>
 </footer>
