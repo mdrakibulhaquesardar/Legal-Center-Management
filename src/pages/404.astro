@@ -3,27 +3,29 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="Document Not Found (404)">
-  <div class="max-w-xl mx-auto px-4 py-24 text-center">
-    <div class="w-20 h-20 mx-auto rounded-3xl bg-slate-100 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 flex items-center justify-center text-3xl font-extrabold text-slate-800 dark:text-zinc-200 shadow-sm mb-6">
-      404
+  <div class="max-w-xl mx-auto px-4 py-28 text-center">
+    <div class="relative inline-flex items-center justify-center mb-6">
+      <div class="absolute -inset-2 rounded-3xl bg-gradient-to-r from-[#3245ff] to-[#bc52ee] opacity-50 blur-xl"></div>
+      <div class="relative w-24 h-24 rounded-3xl astro-card flex items-center justify-center text-4xl font-extrabold text-white">
+        404
+      </div>
     </div>
 
-    <h1 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-zinc-100 mb-3">
-      Legal Document or App Not Found
+    <h1 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight mb-3">
+      Legal Page Not Found
     </h1>
 
-    <p class="text-sm text-slate-600 dark:text-zinc-400 mb-8 leading-relaxed">
-      The legal document, policy, or application you are looking for does not exist, has been retired, or the URL might be mistyped.
+    <p class="text-sm sm:text-base text-zinc-400 mb-8 leading-relaxed">
+      The legal document, policy, or application you are looking for does not exist, has been archived, or the link may have been updated.
     </p>
 
     <div class="flex items-center justify-center gap-4">
       <a
         href="/"
-        class="inline-flex items-center justify-center px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-zinc-100 text-white dark:text-zinc-900 text-sm font-semibold transition-colors shadow-sm"
+        class="inline-flex items-center justify-center px-6 py-3 rounded-xl text-white font-semibold text-sm bg-gradient-to-r from-[#3245ff] to-[#bc52ee] hover:opacity-95 shadow-[0_0_25px_-5px_rgba(188,82,238,0.5)] transition-all hover:scale-[1.02]"
       >
-        Return to Legal Center Home
+        <span>← Return to Legal Center</span>
       </a>
     </div>
   </div>
 </BaseLayout>
-
