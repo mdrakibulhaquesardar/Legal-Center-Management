@@ -4,6 +4,7 @@ import DocTabs from './DocTabs.astro';
 import type { AppMetadata, DocumentMetadata } from '../lib/types';
 import { formatDocTitle } from '../lib/documents';
 import { siteConfig } from '../config/site';
+import { url } from '../lib/paths';
 
 interface Props {
   app: AppMetadata;
@@ -16,7 +17,8 @@ const { app, doc, allDocs } = Astro.props;
 const docTitle = doc.title || formatDocTitle(doc.slug);
 const pageTitle = `${docTitle} - ${app.name}`;
 const pageDescription = `${docTitle} for ${app.name} (${app.packageName || 'Mobile Application'}). Managed by ${app.developer || siteConfig.developerName}.`;
-const currentPath = `/${app.slug}/${doc.slug}`;
+const currentPath = url(`/${app.slug}/${doc.slug}`);
+const homeUrl = url('/');
 ---
 
 <BaseLayout
@@ -28,7 +30,7 @@ const currentPath = `/${app.slug}/${doc.slug}`;
   <div class="max-w-4xl mx-auto py-2">
     <!-- Breadcrumb -->
     <nav class="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 mb-4 no-print">
-      <a href="/" class="hover:text-slate-900 dark:hover:text-white transition-colors">
+      <a href={homeUrl} class="hover:text-slate-900 dark:hover:text-white transition-colors">
         Legal Center
       </a>
       <span>/</span>
@@ -46,7 +48,7 @@ const currentPath = `/${app.slug}/${doc.slug}`;
       <div class="flex items-center gap-3">
         <div class="w-12 h-12 rounded-xl flex-shrink-0 flex items-center justify-center overflow-hidden border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-1">
           {app.icon ? (
-            <img src={app.icon} alt={`${app.name} icon`} class="w-full h-full object-contain" />
+            <img src={url(app.icon)} alt={`${app.name} icon`} class="w-full h-full object-contain" />
           ) : (
             <span class="text-lg font-bold text-slate-700 dark:text-slate-300">
               {app.name.charAt(0).toUpperCase()}
@@ -102,7 +104,7 @@ const currentPath = `/${app.slug}/${doc.slug}`;
 
     <!-- Bottom Navigation -->
     <div class="mt-12 pt-6 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between text-xs text-slate-500 no-print">
-      <a href="/" class="hover:text-slate-900 dark:hover:text-white transition-colors flex items-center gap-1 font-medium">
+      <a href={homeUrl} class="hover:text-slate-900 dark:hover:text-white transition-colors flex items-center gap-1 font-medium">
         <span>←</span>
         <span>Back to All Applications</span>
       </a>

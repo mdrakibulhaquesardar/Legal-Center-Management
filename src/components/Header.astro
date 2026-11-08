@@ -1,12 +1,15 @@
 ---
 import { siteConfig } from '../config/site';
 import ThemeToggle from './ThemeToggle.astro';
+import { url } from '../lib/paths';
 
 interface Props {
   currentPath?: string;
 }
 
 const { currentPath = '/' } = Astro.props;
+const homeUrl = url('/');
+const isHome = currentPath === homeUrl || currentPath === '/' || currentPath === homeUrl.slice(0, -1);
 ---
 
 <header class="sticky top-0 z-30 w-full bg-white/90 dark:bg-[#0b0f17]/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors no-print">
@@ -25,7 +28,7 @@ const { currentPath = '/' } = Astro.props;
         </svg>
       </button>
 
-      <a href="/" class="flex items-center gap-2.5 group">
+      <a href={homeUrl} class="flex items-center gap-2.5 group">
         <span class="w-7 h-7 rounded-lg bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 flex items-center justify-center font-bold text-xs shadow-sm">
           §
         </span>
@@ -43,10 +46,10 @@ const { currentPath = '/' } = Astro.props;
     <!-- Right Side Actions & Theme Toggle -->
     <div class="flex items-center gap-2 sm:gap-4">
       <a
-        href="/"
+        href={homeUrl}
         class:list={[
           "text-xs sm:text-sm font-medium px-2.5 py-1 rounded-md transition-colors",
-          currentPath === "/"
+          isHome
             ? "text-slate-900 dark:text-white bg-slate-100 dark:bg-slate-800"
             : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
         ]}
@@ -54,14 +57,14 @@ const { currentPath = '/' } = Astro.props;
         All Apps
       </a>
 
-      {siteConfig.websiteUrl && (
+      {siteConfig.githubUrl && (
         <a
-          href={siteConfig.websiteUrl}
+          href={siteConfig.githubUrl}
           target="_blank"
           rel="noopener noreferrer"
           class="hidden sm:inline-flex items-center gap-1 text-xs sm:text-sm text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
         >
-          <span>Website</span>
+          <span>GitHub</span>
           <span class="text-[10px]">↗</span>
         </a>
       )}
