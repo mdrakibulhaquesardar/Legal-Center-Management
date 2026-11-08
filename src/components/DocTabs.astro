@@ -1,0 +1,50 @@
+---
+import type { DocumentMetadata } from '../lib/types';
+import { formatDocTitle } from '../lib/documents';
+
+interface Props {
+  appSlug: string;
+  currentDocSlug: string;
+  allDocs: DocumentMetadata[];
+}
+
+const { appSlug, currentDocSlug, allDocs } = Astro.props;
+---
+
+<div class="border-b border-slate-200 dark:border-zinc-800 pb-4 mb-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 no-print">
+  <!-- Document Switcher Pills -->
+  <div class="flex flex-wrap items-center gap-2">
+    <span class="text-xs font-semibold text-slate-400 dark:text-zinc-500 uppercase tracking-wider mr-1">
+      Documents:
+    </span>
+    {allDocs.map((doc) => {
+      const isActive = doc.slug === currentDocSlug;
+      return (
+        <a
+          href={`/${appSlug}/${doc.slug}`}
+          class:list={[
+            "px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-medium transition-all",
+            isActive
+              ? "bg-slate-900 text-white dark:bg-white dark:text-zinc-900 shadow-sm"
+              : "bg-slate-100 text-slate-700 hover:bg-slate-200 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-700"
+          ]}
+        >
+          {doc.title || formatDocTitle(doc.slug)}
+        </a>
+      );
+    })}
+  </div>
+
+  <!-- Print Button -->
+  <button
+    type="button"
+    onclick="window.print()"
+    class="inline-flex items-center gap-1.5 text-xs font-medium text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-100 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-zinc-700 hover:bg-slate-50 dark:hover:bg-zinc-800/60 transition-colors self-start sm:self-auto"
+  >
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path>
+    </svg>
+    <span>Print / Save PDF</span>
+  </button>
+</div>
+

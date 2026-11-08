@@ -1,0 +1,96 @@
+---
+// SearchBar.astro
+---
+
+<div class="w-full max-w-xl mx-auto mb-10 no-print">
+  <div class="relative">
+    <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 dark:text-zinc-500">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+      </svg>
+    </div>
+
+    <input
+      id="search-input"
+      type="search"
+      placeholder="Search applications by name or package ID..."
+      class="w-full pl-11 pr-10 py-3 text-sm rounded-xl border border-slate-300 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-slate-900 dark:text-zinc-100 placeholder-slate-400 dark:placeholder-zinc-500 shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500 dark:focus:ring-sky-400 transition-all"
+    />
+
+    <button
+      id="search-clear"
+      type="button"
+      class="hidden absolute inset-y-0 right-0 pr-3.5 flex items-center text-slate-400 hover:text-slate-600 dark:hover:text-zinc-200"
+      aria-label="Clear search"
+    >
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+  </div>
+
+  <div id="search-status" class="mt-2 text-xs text-slate-500 dark:text-zinc-400 px-1 flex justify-between items-center">
+    <span id="match-count"></span>
+  </div>
+</div>
+
+<script is:inline>
+  const searchInput = document.getElementById('search-input');
+  const searchClear = document.getElementById('search-clear');
+  const matchCount = document.getElementById('match-count');
+  const appCards = document.querySelectorAll('.app-card');
+  const emptyState = document.getElementById('empty-search-state');
+
+  function performSearch() {
+    const query = searchInput.value.toLowerCase().trim();
+    let visibleCount = 0;
+
+    if (query.length > 0) {
+      searchClear?.classList.remove('hidden');
+    } else {
+      searchClear?.classList.add('hidden');
+    }
+
+    appCards.forEach((card) => {
+      const name = card.getAttribute('data-name') || '';
+      const pkg = card.getAttribute('data-package') || '';
+      const desc = card.getAttribute('data-desc') || '';
+
+      const matches = name.includes(query) || pkg.includes(query) || desc.includes(query);
+
+      if (matches) {
+        card.classList.remove('hidden');
+        visibleCount++;
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+
+    if (query) {
+      matchCount.textContent = `Showing ${visibleCount} of ${appCards.length} applications`;
+    } else {
+      matchCount.textContent = `Total ${appCards.length} applications`;
+    }
+
+    if (emptyState) {
+      if (visibleCount === 0) {
+        emptyState.classList.remove('hidden');
+      } else {
+        emptyState.classList.add('hidden');
+      }
+    }
+  }
+
+  // Initial count
+  if (matchCount) {
+    matchCount.textContent = `Total ${appCards.length} applications`;
+  }
+
+  searchInput?.addEventListener('input', performSearch);
+  searchClear?.addEventListener('click', () => {
+    searchInput.value = '';
+    performSearch();
+    searchInput.focus();
+  });
+</script>
+

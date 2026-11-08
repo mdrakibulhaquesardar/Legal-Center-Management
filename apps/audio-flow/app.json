@@ -1,0 +1,12 @@
+{
+  "name": "Audio Flow Recorder",
+  "slug": "audio-flow",
+  "packageName": "com.devhridoy.audioflow",
+  "description": "High-fidelity voice recorder and audio journal with offline noise reduction.",
+  "developer": "Hridoy Legal Services & Development",
+  "email": "support@audioflow.app",
+  "website": "https://audioflow.app",
+  "icon": "/icons/audio-flow.svg",
+  "active": true
+}
+

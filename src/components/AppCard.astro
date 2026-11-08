@@ -1,0 +1,89 @@
+---
+import type { AppWithDocuments } from '../lib/types';
+import { formatDocTitle } from '../lib/documents';
+
+interface Props {
+  appData: AppWithDocuments;
+}
+
+const { appData } = Astro.props;
+const { app, documents } = appData;
+
+// Visual helper for doc badge colors
+function getBadgeStyle(slug: string) {
+  switch (slug) {
+    case 'privacy':
+      return 'bg-emerald-50 text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800/60 hover:bg-emerald-100 dark:hover:bg-emerald-900/40';
+    case 'terms':
+      return 'bg-sky-50 text-sky-700 dark:bg-sky-950/40 dark:text-sky-300 border-sky-200 dark:border-sky-800/60 hover:bg-sky-100 dark:hover:bg-sky-900/40';
+    case 'data-deletion':
+      return 'bg-rose-50 text-rose-700 dark:bg-rose-950/40 dark:text-rose-300 border-rose-200 dark:border-rose-800/60 hover:bg-rose-100 dark:hover:bg-rose-900/40';
+    case 'support':
+      return 'bg-amber-50 text-amber-700 dark:bg-amber-950/40 dark:text-amber-300 border-amber-200 dark:border-amber-800/60 hover:bg-amber-100 dark:hover:bg-amber-900/40';
+    default:
+      return 'bg-slate-50 text-slate-700 dark:bg-zinc-800 dark:text-zinc-300 border-slate-200 dark:border-zinc-700 hover:bg-slate-100 dark:hover:bg-zinc-700';
+  }
+}
+---
+
+<div
+  class="app-card group flex flex-col justify-between p-6 bg-white dark:bg-zinc-900 rounded-2xl border border-slate-200 dark:border-zinc-800 shadow-sm hover:shadow-md transition-all duration-200"
+  data-name={app.name.toLowerCase()}
+  data-package={app.packageName?.toLowerCase() || ''}
+  data-desc={app.description?.toLowerCase() || ''}
+>
+  <div>
+    <!-- Top Row: Icon + Name + Package -->
+    <div class="flex items-start gap-4 mb-4">
+      <div class="w-14 h-14 rounded-2xl flex-shrink-0 flex items-center justify-center overflow-hidden border border-slate-200 dark:border-zinc-700 bg-slate-100 dark:bg-zinc-800 shadow-inner">
+        {app.icon ? (
+          <img src={app.icon} alt={`${app.name} icon`} class="w-full h-full object-cover" />
+        ) : (
+          <span class="text-xl font-bold text-slate-600 dark:text-zinc-300">
+            {app.name.charAt(0).toUpperCase()}
+          </span>
+        )}
+      </div>
+
+      <div class="flex-1 min-w-0">
+        <h3 class="text-lg font-semibold text-slate-900 dark:text-zinc-100 truncate group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors">
+          {app.name}
+        </h3>
+        {app.packageName && (
+          <p class="text-xs font-mono text-slate-500 dark:text-zinc-400 truncate mt-0.5" title={app.packageName}>
+            {app.packageName}
+          </p>
+        )}
+      </div>
+    </div>
+
+    <!-- Description -->
+    {app.description && (
+      <p class="text-sm text-slate-600 dark:text-zinc-400 line-clamp-2 mb-6">
+        {app.description}
+      </p>
+    )}
+  </div>
+
+  <!-- Document Links / Badges -->
+  <div class="pt-4 border-t border-slate-100 dark:border-zinc-800/80">
+    <p class="text-xs font-medium text-slate-400 dark:text-zinc-500 mb-2 uppercase tracking-wider">
+      Legal Documents
+    </p>
+    <div class="flex flex-wrap gap-2">
+      {documents.map((doc) => (
+        <a
+          href={`/${app.slug}/${doc.slug}`}
+          class:list={[
+            "inline-flex items-center text-xs font-medium px-2.5 py-1.5 rounded-lg border transition-colors",
+            getBadgeStyle(doc.slug)
+          ]}
+        >
+          {doc.title || formatDocTitle(doc.slug)}
+          <span class="ml-1 opacity-60">→</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</div>
+

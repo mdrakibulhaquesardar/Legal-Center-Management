@@ -1,0 +1,135 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import DocTabs from './DocTabs.astro';
+import type { AppMetadata, DocumentMetadata } from '../lib/types';
+import { formatDocTitle } from '../lib/documents';
+import { siteConfig } from '../config/site';
+
+interface Props {
+  app: AppMetadata;
+  doc: DocumentMetadata;
+  allDocs: DocumentMetadata[];
+}
+
+const { app, doc, allDocs } = Astro.props;
+
+const docTitle = doc.title || formatDocTitle(doc.slug);
+const pageTitle = `${docTitle} - ${app.name}`;
+const pageDescription = `${docTitle} for ${app.name} (${app.packageName || 'Mobile Application'}). Managed by ${app.developer || siteConfig.developerName}.`;
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+    <!-- Breadcrumbs (Hidden on print) -->
+    <nav class="flex items-center gap-2 text-xs text-slate-500 dark:text-zinc-400 mb-6 no-print">
+      <a href="/" class="hover:text-slate-900 dark:hover:text-zinc-100 transition-colors">
+        Legal Center
+      </a>
+      <span>/</span>
+      <span class="text-slate-700 dark:text-zinc-300 font-medium">
+        {app.name}
+      </span>
+      <span>/</span>
+      <span class="text-slate-900 dark:text-zinc-100 font-semibold">
+        {docTitle}
+      </span>
+    </nav>
+
+    <!-- App Info Header -->
+    <header class="mb-8 p-6 bg-slate-50 dark:bg-zinc-900/60 rounded-2xl border border-slate-200 dark:border-zinc-800 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+      <div class="flex items-center gap-4">
+        <div class="w-16 h-16 rounded-2xl flex-shrink-0 flex items-center justify-center overflow-hidden border border-slate-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 shadow-sm">
+          {app.icon ? (
+            <img src={app.icon} alt={`${app.name} icon`} class="w-full h-full object-cover" />
+          ) : (
+            <span class="text-2xl font-bold text-slate-700 dark:text-zinc-300">
+              {app.name.charAt(0).toUpperCase()}
+            </span>
+          )}
+        </div>
+
+        <div>
+          <h1 class="text-2xl font-bold text-slate-900 dark:text-zinc-100">
+            {app.name}
+          </h1>
+          <div class="flex flex-wrap items-center gap-2 mt-1 text-xs text-slate-500 dark:text-zinc-400">
+            {app.packageName && (
+              <span class="font-mono bg-white dark:bg-zinc-800 px-2 py-0.5 rounded border border-slate-200 dark:border-zinc-700">
+                {app.packageName}
+              </span>
+            )}
+            <span>•</span>
+            <span>Developer: {app.developer || siteConfig.developerName}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- App Metadata Links / Support -->
+      <div class="flex flex-col sm:items-end gap-1.5 text-xs text-slate-500 dark:text-zinc-400">
+        {doc.lastUpdated && (
+          <div class="inline-flex items-center gap-1.5 font-medium text-slate-700 dark:text-zinc-300">
+            <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <span>Updated: {doc.lastUpdated}</span>
+          </div>
+        )}
+        {app.email && (
+          <a
+            href={`mailto:${app.email}`}
+            class="text-sky-600 dark:text-sky-400 hover:underline transition-colors"
+          >
+            {app.email}
+          </a>
+        )}
+        {app.website && (
+          <a
+            href={app.website}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:text-slate-900 dark:hover:text-zinc-100 hover:underline transition-colors"
+          >
+            Visit App Website ↗
+          </a>
+        )}
+      </div>
+    </header>
+
+    <!-- Document Navigation Tabs -->
+    <DocTabs appSlug={app.slug} currentDocSlug={doc.slug} allDocs={allDocs} />
+
+    <!-- Print Header Only -->
+    <div class="print-only mb-6 border-b border-black pb-3">
+      <h2 class="text-xl font-bold">{app.name} - {docTitle}</h2>
+      <p class="text-sm">Package ID: {app.packageName || 'N/A'}</p>
+      {doc.lastUpdated && <p class="text-sm">Effective / Last Updated: {doc.lastUpdated}</p>}
+      <p class="text-sm">Developer: {app.developer || siteConfig.developerName} ({app.email || siteConfig.developerEmail})</p>
+    </div>
+
+    <!-- Document Content Rendered as Safe Markdown HTML -->
+    <article
+      class="prose prose-slate dark:prose-invert max-w-none prose-headings:font-semibold prose-headings:tracking-tight prose-a:text-sky-600 dark:prose-a:text-sky-400 prose-img:rounded-xl leading-relaxed text-slate-800 dark:text-zinc-200"
+      set:html={doc.htmlContent}
+    />
+
+    <!-- Bottom Navigation Bar (Hidden on print) -->
+    <div class="mt-12 pt-6 border-t border-slate-200 dark:border-zinc-800 flex items-center justify-between no-print">
+      <a
+        href="/"
+        class="inline-flex items-center gap-2 text-sm font-medium text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-100 transition-colors"
+      >
+        <span aria-hidden="true">←</span>
+        <span>Back to All Applications</span>
+      </a>
+
+      <button
+        type="button"
+        onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+        class="text-xs text-slate-500 hover:text-slate-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
+      >
+        Back to top ↑
+      </button>
+    </div>
+  </div>
+</BaseLayout>
+

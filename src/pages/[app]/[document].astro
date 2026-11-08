@@ -1,0 +1,20 @@
+---
+import LegalDocumentLayout from '../../components/LegalDocumentLayout.astro';
+import { getAllStaticDocRoutes } from '../../lib/apps';
+import type { AppMetadata, DocumentMetadata } from '../../lib/types';
+
+export function getStaticPaths() {
+  return getAllStaticDocRoutes();
+}
+
+interface Props {
+  app: AppMetadata;
+  doc: DocumentMetadata;
+  allDocs: DocumentMetadata[];
+}
+
+const { app, doc, allDocs } = Astro.props;
+---
+
+<LegalDocumentLayout app={app} doc={doc} allDocs={allDocs} />
+

@@ -1,0 +1,12 @@
+{
+  "name": "Habit Forge - Daily Routine",
+  "slug": "habit-forge",
+  "packageName": "com.devhridoy.habitforge",
+  "description": "Smart daily habit tracker and routine planner with streaks and cloud backup.",
+  "developer": "Hridoy Legal Services & Development",
+  "email": "support@habitforge.app",
+  "website": "https://habitforge.app",
+  "icon": "/icons/habit-forge.svg",
+  "active": true
+}
+
