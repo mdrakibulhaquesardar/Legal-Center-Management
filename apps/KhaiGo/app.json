@@ -1,0 +1,18 @@
+{
+  "name": "KhaiGO",
+  "slug": "khaigo",
+  "packageName": "com.nexcode.khaigo",
+  "description": "Culinary Discovery App — Discover authentic dishes before restaurants. Food moods, chef surprises, and dining guides primarily in Rajshahi, Bangladesh.",
+  "developer": "NexCode Studio",
+  "email": "rakibul.nexcode@gmail.com",
+  "website": "https://brilliant-otter-bc6f46.netlify.app",
+  "icon": "/assets/khaigo/logo.png",
+  "banner": "/assets/khaigo/banner.png",
+  "screenshots": [
+    "/assets/khaigo/discover.png",
+    "/assets/khaigo/chef-panda.png",
+    "/assets/khaigo/foodie-journey.png",
+    "/assets/khaigo/rajshahi-food-story.png"
+  ],
+  "active": true
+}

@@ -25,7 +25,7 @@ function validateAppMetadata(data: unknown, dirName: string): AppMetadata {
   }
 
   const slug = raw.slug.trim();
-  if (slug !== dirName) {
+  if (slug.toLowerCase() !== dirName.toLowerCase()) {
     console.warn(`[Warning] Directory name "apps/${dirName}" does not match slug "${slug}". Using slug "${slug}".`);
   }
 
