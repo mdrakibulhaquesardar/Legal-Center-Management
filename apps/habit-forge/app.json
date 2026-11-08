@@ -1,12 +1,11 @@
 {
   "name": "Habit Forge - Daily Routine",
   "slug": "habit-forge",
-  "packageName": "com.devhridoy.habitforge",
+  "packageName": "com.nexcode.habitforge",
   "description": "Smart daily habit tracker and routine planner with streaks and cloud backup.",
-  "developer": "Hridoy Legal Services & Development",
-  "email": "support@habitforge.app",
-  "website": "https://habitforge.app",
+  "developer": "NexCode Studio",
+  "email": "support@nexcode.studio",
+  "website": "https://nexcode.studio",
   "icon": "/icons/habit-forge.svg",
   "active": true
 }
-

@@ -5,7 +5,7 @@ lastUpdated: November 8, 2026
 
 # Habit Forge Support & Help Center
 
-Welcome to the official support page for **Habit Forge - Daily Routine**. We are committed to providing you with a seamless habit-building experience.
+Welcome to the official support page for **Habit Forge - Daily Routine** by **NexCode Studio**. We are committed to providing you with a seamless habit-building experience.
 
 ---
 
@@ -31,7 +31,7 @@ Cloud sync runs automatically whenever your device connects to the internet. You
 
 We actively listen to user feedback to improve Habit Forge. If you encounter an unexpected crash, visual glitch, or have an idea for a new feature:
 
-* **Email:** [support@habitforge.app](mailto:support@habitforge.app)
+* **Email:** [support@nexcode.studio](mailto:support@nexcode.studio)
 * **Response Time:** We typically respond within 24–48 hours on business days.
 * Please include your **Android OS version**, **device model**, and a description of the issue.
 
@@ -42,4 +42,3 @@ We actively listen to user feedback to improve Habit Forge. If you encounter an 
 * [Privacy Policy](/habit-forge/privacy)
 * [Terms & Conditions](/habit-forge/terms)
 * [Data Deletion Request](/habit-forge/data-deletion)
-

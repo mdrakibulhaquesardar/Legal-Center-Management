@@ -7,10 +7,10 @@ lastUpdated: November 8, 2026
 
 **Effective Date:** November 8, 2026  
 **Application Name:** Habit Forge - Daily Routine  
-**Package Name:** `com.devhridoy.habitforge`  
-**Developer Contact:** support@habitforge.app  
+**Package Name:** `com.nexcode.habitforge`  
+**Developer Contact:** support@nexcode.studio  
 
-This Privacy Policy describes how Habit Forge ("we", "our", or "us") collects, uses, and shares your personal information when you use our mobile application available on the Google Play Store.
+This Privacy Policy describes how Habit Forge, developed by **NexCode Studio** ("we", "our", or "us"), collects, uses, and shares your personal information when you use our mobile application available on the Google Play Store.
 
 ---
 
@@ -79,6 +79,5 @@ We may periodically update this Privacy Policy. Any modifications will be posted
 ## 8. Contact Us
 
 If you have questions, feedback, or privacy-related requests regarding this policy, please reach out to:
-* **Email:** [support@habitforge.app](mailto:support@habitforge.app)
-* **Developer:** Hridoy Legal Services & Development
-
+* **Email:** [support@nexcode.studio](mailto:support@nexcode.studio)
+* **Developer:** NexCode Studio

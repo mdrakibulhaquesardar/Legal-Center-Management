@@ -7,9 +7,9 @@ lastUpdated: November 8, 2026
 
 **Effective Date:** November 8, 2026  
 **Application Name:** Habit Forge - Daily Routine  
-**Package Name:** `com.devhridoy.habitforge`  
+**Package Name:** `com.nexcode.habitforge`  
 
-Please read these Terms and Conditions ("Terms", "Agreement") carefully before downloading or using the **Habit Forge** mobile application operated by Hridoy Legal Services & Development ("we", "us", or "our").
+Please read these Terms and Conditions ("Terms", "Agreement") carefully before downloading or using the **Habit Forge** mobile application operated by **NexCode Studio** ("we", "us", or "our").
 
 ---
 
@@ -47,7 +47,7 @@ You agree not to:
 
 ## 5. Intellectual Property Rights
 
-All rights, titles, and interests in and to the application—including trademarks, source code, user interface designs, visual assets, and content—remain the exclusive property of the developer and its licensors.
+All rights, titles, and interests in and to the application—including trademarks, source code, user interface designs, visual assets, and content—remain the exclusive property of NexCode Studio and its licensors.
 
 ---
 
@@ -59,7 +59,7 @@ The application is provided on an **"AS IS"** and **"AS AVAILABLE"** basis witho
 
 ## 7. Limitation of Liability
 
-To the fullest extent permitted by applicable law, in no event shall the developer be liable for any indirect, incidental, special, punitive, or consequential damages arising out of your use or inability to use the application.
+To the fullest extent permitted by applicable law, in no event shall NexCode Studio be liable for any indirect, incidental, special, punitive, or consequential damages arising out of your use or inability to use the application.
 
 ---
 
@@ -72,5 +72,5 @@ We reserve the right to suspend or terminate your access to the application at o
 ## 9. Contact Information
 
 For questions regarding these Terms and Conditions, please contact:
-* **Email:** [support@habitforge.app](mailto:support@habitforge.app)
-
+* **Email:** [support@nexcode.studio](mailto:support@nexcode.studio)
+* **Website:** [https://nexcode.studio](https://nexcode.studio)

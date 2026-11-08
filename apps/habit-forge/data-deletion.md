@@ -6,10 +6,11 @@ lastUpdated: November 8, 2026
 # User Data & Account Deletion Policy
 
 **Application Name:** Habit Forge - Daily Routine  
-**Package Name:** `com.devhridoy.habitforge`  
+**Package Name:** `com.nexcode.habitforge`  
+**Developer:** NexCode Studio  
 **Compliance Reference:** Google Play User Data & Account Deletion Policy  
 
-At Habit Forge, we respect your privacy and provide transparent, straightforward mechanisms for users to request the permanent deletion of their account and associated personal data.
+At Habit Forge by **NexCode Studio**, we respect your privacy and provide transparent, straightforward mechanisms for users to request the permanent deletion of their account and associated personal data.
 
 ---
 
@@ -40,7 +41,7 @@ You can delete your account and all associated data directly from within the mob
 
 If you have uninstalled the app or cannot access your device, you can request account deletion via email:
 
-1. Send an email to **[support@habitforge.app](mailto:support@habitforge.app)** with the subject line:  
+1. Send an email to **[support@nexcode.studio](mailto:support@nexcode.studio)** with the subject line:  
    `Account Deletion Request - Habit Forge`
 2. In the body of the message, provide:
    * The registered email address linked to your Habit Forge account.
@@ -59,6 +60,5 @@ Certain anonymized telemetry data (such as non-identifiable crash counts and agg
 ## 5. Contact & Assistance
 
 For any inquiries or assistance regarding data deletion, contact our Data Protection Officer at:
-* **Email:** [support@habitforge.app](mailto:support@habitforge.app)
-* **Website:** [https://habitforge.app](https://habitforge.app)
-
+* **Email:** [support@nexcode.studio](mailto:support@nexcode.studio)
+* **Website:** [https://nexcode.studio](https://nexcode.studio)

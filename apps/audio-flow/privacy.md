@@ -7,10 +7,10 @@ lastUpdated: November 8, 2026
 
 **Effective Date:** November 8, 2026  
 **Application Name:** Audio Flow Recorder  
-**Package Name:** `com.devhridoy.audioflow`  
-**Developer Contact:** support@audioflow.app  
+**Package Name:** `com.nexcode.audioflow`  
+**Developer Contact:** support@nexcode.studio  
 
-Audio Flow Recorder ("we", "our") is designed with a strict **privacy-first architecture**. We firmly believe that your voice recordings and audio files belong solely to you.
+Audio Flow Recorder by **NexCode Studio** ("we", "our") is designed with a strict **privacy-first architecture**. We firmly believe that your voice recordings and audio files belong solely to you.
 
 ---
 
@@ -38,5 +38,5 @@ To maintain software reliability and prevent crashes, the application may collec
 ## 4. Contact Us
 
 If you have questions about Audio Flow Recorder's privacy practices:
-* **Email:** [support@audioflow.app](mailto:support@audioflow.app)
-
+* **Email:** [support@nexcode.studio](mailto:support@nexcode.studio)
+* **Developer:** NexCode Studio

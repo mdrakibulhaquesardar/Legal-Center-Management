@@ -7,7 +7,8 @@ lastUpdated: November 8, 2026
 
 **Effective Date:** November 8, 2026  
 **Application Name:** Audio Flow Recorder  
-**Package Name:** `com.devhridoy.audioflow`  
+**Package Name:** `com.nexcode.audioflow`  
+**Developer:** NexCode Studio  
 
 By downloading or using Audio Flow Recorder, you agree to comply with and be bound by these Terms of Service.
 
@@ -27,17 +28,16 @@ You acknowledge and agree that recording audio conversations may require the con
 
 ## 3. Intellectual Property
 
-You retain 100% ownership and copyright of all audio recordings you create using the application. The software, interfaces, icons, and codebase remain the proprietary property of the developer.
+You retain 100% ownership and copyright of all audio recordings you create using the application. The software, interfaces, icons, and codebase remain the proprietary property of NexCode Studio.
 
 ---
 
 ## 4. Disclaimer of Warranty
 
-Audio Flow Recorder is provided "as is" without warranty of any kind. The developer is not liable for data loss, accidental file deletion, or failed recordings resulting from device failure or insufficient battery/storage.
+Audio Flow Recorder is provided "as is" without warranty of any kind. NexCode Studio is not liable for data loss, accidental file deletion, or failed recordings resulting from device failure or insufficient battery/storage.
 
 ---
 
 ## 5. Contact
 
-* **Email:** [support@audioflow.app](mailto:support@audioflow.app)
-
+* **Email:** [support@nexcode.studio](mailto:support@nexcode.studio)
