@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import matter from 'gray-matter';
 import { marked } from 'marked';
 import sanitizeHtml from 'sanitize-html';
+import { url } from './paths';
 import type { DocumentMetadata } from './types';
 
 // Map common slugs to friendly default titles
@@ -72,10 +73,18 @@ export function parseMarkdownDocument(filePath: string, slug: string): DocumentM
       'code',
       'pre',
       'span',
+      'div',
+      'p',
+      'img',
+      'figure',
+      'figcaption',
     ],
     allowedAttributes: {
       ...sanitizeHtml.defaults.allowedAttributes,
       a: ['href', 'name', 'target', 'rel', 'class'],
+      img: ['src', 'alt', 'title', 'class', 'width', 'height', 'loading'],
+      div: ['class', 'id'],
+      p: ['class'],
       th: ['align'],
       td: ['align'],
       span: ['class'],
@@ -85,6 +94,21 @@ export function parseMarkdownDocument(filePath: string, slug: string): DocumentM
       a: sanitizeHtml.simpleTransform('a', {
         rel: 'noopener noreferrer',
       }),
+      img: (_tagName, attribs) => {
+        let src = attribs.src || '';
+        if (src.startsWith('/') && !src.startsWith('//')) {
+          src = url(src);
+        }
+        return {
+          tagName: 'img',
+          attribs: {
+            ...attribs,
+            src,
+            loading: 'lazy',
+            class: (attribs.class ? attribs.class + ' ' : '') + 'rounded-lg max-w-full h-auto',
+          },
+        };
+      },
     },
   });
 

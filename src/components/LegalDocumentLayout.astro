@@ -44,45 +44,58 @@ const homeUrl = url('/');
     </nav>
 
     <!-- Document Header Info Box -->
-    <header class="mb-6 p-4 sm:p-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/60 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-      <div class="flex items-center gap-3">
-        <div class="w-12 h-12 rounded-xl flex-shrink-0 flex items-center justify-center overflow-hidden border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-1">
-          {app.icon ? (
-            <img src={url(app.icon)} alt={`${app.name} icon`} class="w-full h-full object-contain" />
-          ) : (
-            <span class="text-lg font-bold text-slate-700 dark:text-slate-300">
-              {app.name.charAt(0).toUpperCase()}
-            </span>
-          )}
+    <header class="mb-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/60 overflow-hidden">
+      {app.banner && (
+        <div class="h-28 sm:h-36 w-full overflow-hidden bg-slate-100 dark:bg-slate-800 border-b border-slate-200 dark:border-slate-800">
+          <img
+            src={url(app.banner)}
+            alt={`${app.name} feature banner`}
+            class="w-full h-full object-cover object-center"
+            loading="lazy"
+          />
         </div>
+      )}
 
-        <div>
-          <h1 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
-            {app.name}
-          </h1>
-          <div class="flex flex-wrap items-center gap-2 mt-0.5 text-xs text-slate-600 dark:text-slate-400 font-mono">
-            {app.packageName && (
-              <span class="bg-white dark:bg-slate-800 px-2 py-0.5 rounded border border-slate-200 dark:border-slate-700 font-medium text-slate-800 dark:text-slate-200">
-                {app.packageName}
+      <div class="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div class="flex items-center gap-3.5">
+          <div class="w-12 h-12 rounded-xl flex-shrink-0 flex items-center justify-center overflow-hidden border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-1 shadow-sm">
+            {app.icon ? (
+              <img src={url(app.icon)} alt={`${app.name} icon`} class="w-full h-full object-contain" />
+            ) : (
+              <span class="text-lg font-bold text-slate-700 dark:text-slate-300">
+                {app.name.charAt(0).toUpperCase()}
               </span>
             )}
-            <span>•</span>
-            <span>Developer: {app.developer || siteConfig.developerName}</span>
+          </div>
+
+          <div>
+            <h1 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
+              {app.name}
+            </h1>
+            <div class="flex flex-wrap items-center gap-2 mt-0.5 text-xs text-slate-600 dark:text-slate-400 font-mono">
+              {app.packageName && (
+                <span class="bg-white dark:bg-slate-800 px-2 py-0.5 rounded border border-slate-200 dark:border-slate-700 font-medium text-slate-800 dark:text-slate-200">
+                  {app.packageName}
+                </span>
+              )}
+              <span>•</span>
+              <span>Developer: {app.developer || siteConfig.developerName}</span>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="flex flex-col sm:items-end gap-1 text-xs text-slate-600 dark:text-slate-400">
-        {doc.lastUpdated && (
-          <span class="font-mono font-medium text-slate-800 dark:text-slate-200">
-            Updated: {doc.lastUpdated}
-          </span>
-        )}
-        {app.email && (
-          <a href={`mailto:${app.email}`} class="text-blue-600 dark:text-blue-400 hover:underline">
-            {app.email}
-          </a>
-        )}
+        <div class="flex flex-col sm:items-end gap-1 text-xs text-slate-600 dark:text-slate-400">
+          {doc.lastUpdated && (
+            <span class="font-mono font-medium text-slate-800 dark:text-slate-200">
+              Updated: {doc.lastUpdated}
+            </span>
+          )}
+          {app.email && (
+            <a href={`mailto:${app.email}`} class="text-blue-600 dark:text-blue-400 hover:underline">
+              {app.email}
+            </a>
+          )}
+        </div>
       </div>
     </header>
 

@@ -12,46 +12,60 @@ const { app, documents } = appData;
 ---
 
 <div
-  class="app-card flex flex-col justify-between p-5 sm:p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#111827] hover:border-slate-300 dark:hover:border-slate-700 transition-all shadow-sm"
+  class="app-card flex flex-col justify-between rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#111827] hover:border-slate-300 dark:hover:border-slate-700 transition-all shadow-sm overflow-hidden"
   data-name={app.name.toLowerCase()}
   data-package={app.packageName?.toLowerCase() || ''}
   data-desc={app.description?.toLowerCase() || ''}
 >
   <div>
-    <!-- Top Row: Icon + Name + Package -->
-    <div class="flex items-start gap-3.5 mb-3">
-      <div class="w-12 h-12 rounded-xl flex-shrink-0 flex items-center justify-center overflow-hidden border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 p-1">
-        {app.icon ? (
-          <img src={url(app.icon)} alt={`${app.name} icon`} class="w-full h-full object-contain" />
-        ) : (
-          <span class="text-lg font-bold text-slate-700 dark:text-slate-300">
-            {app.name.charAt(0).toUpperCase()}
-          </span>
-        )}
+    <!-- Optional Feature Graphic / Banner -->
+    {app.banner && (
+      <div class="h-28 sm:h-32 w-full overflow-hidden bg-slate-100 dark:bg-slate-800 border-b border-slate-200 dark:border-slate-800">
+        <img
+          src={url(app.banner)}
+          alt={`${app.name} feature banner`}
+          class="w-full h-full object-cover object-center"
+          loading="lazy"
+        />
       </div>
-
-      <div class="flex-1 min-w-0">
-        <h3 class="text-base font-semibold text-slate-900 dark:text-slate-100 truncate">
-          {app.name}
-        </h3>
-        {app.packageName && (
-          <p class="text-xs font-mono text-slate-500 dark:text-slate-400 truncate mt-0.5" title={app.packageName}>
-            {app.packageName}
-          </p>
-        )}
-      </div>
-    </div>
-
-    <!-- Description -->
-    {app.description && (
-      <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 line-clamp-2 mb-4 leading-relaxed">
-        {app.description}
-      </p>
     )}
+
+    <div class="p-5 sm:p-6 pb-2">
+      <!-- Top Row: Icon + Name + Package -->
+      <div class="flex items-start gap-3.5 mb-3">
+        <div class="w-12 h-12 rounded-xl flex-shrink-0 flex items-center justify-center overflow-hidden border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 p-1">
+          {app.icon ? (
+            <img src={url(app.icon)} alt={`${app.name} icon`} class="w-full h-full object-contain" />
+          ) : (
+            <span class="text-lg font-bold text-slate-700 dark:text-slate-300">
+              {app.name.charAt(0).toUpperCase()}
+            </span>
+          )}
+        </div>
+
+        <div class="flex-1 min-w-0">
+          <h3 class="text-base font-semibold text-slate-900 dark:text-slate-100 truncate">
+            {app.name}
+          </h3>
+          {app.packageName && (
+            <p class="text-xs font-mono text-slate-500 dark:text-slate-400 truncate mt-0.5" title={app.packageName}>
+              {app.packageName}
+            </p>
+          )}
+        </div>
+      </div>
+
+      <!-- Description -->
+      {app.description && (
+        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 line-clamp-2 mb-4 leading-relaxed">
+          {app.description}
+        </p>
+      )}
+    </div>
   </div>
 
   <!-- Document Links -->
-  <div class="pt-3.5 border-t border-slate-100 dark:border-slate-800">
+  <div class="p-5 sm:p-6 pt-3.5 border-t border-slate-100 dark:border-slate-800">
     <div class="text-[11px] font-mono uppercase tracking-wider text-slate-400 mb-2">
       Policies & Documents
     </div>

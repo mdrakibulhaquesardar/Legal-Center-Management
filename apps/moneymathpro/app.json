@@ -6,7 +6,15 @@
   "developer": "NexCode Studio",
   "email": "rakibullhaques@gmail.com",
   "website": "https://moneymathpro.vercel.app",
-  "icon": "/icons/moneymathpro.svg",
+  "icon": "/assets/moneymathpro/logo.png",
+  "banner": "/assets/moneymathpro/banner.png",
+  "screenshots": [
+    "/assets/moneymathpro/financial-tools.png",
+    "/assets/moneymathpro/money-made-clearer.png",
+    "/assets/moneymathpro/loans-poster.png",
+    "/assets/moneymathpro/ai-advisor.png",
+    "/assets/moneymathpro/expense-tracker.png"
+  ],
   "active": true
 }
 

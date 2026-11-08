@@ -33,8 +33,7 @@
 .legal-article,
 .legal-article p,
 .legal-article li,
-.legal-article td,
-.legal-article div {
+.legal-article td {
   color: #1e293b !important;
   font-size: 0.95rem;
   line-height: 1.75;
@@ -73,8 +72,7 @@
 .dark .legal-article,
 .dark .legal-article p,
 .dark .legal-article li,
-.dark .legal-article td,
-.dark .legal-article div {
+.dark .legal-article td {
   color: #cbd5e1 !important;
 }
 

@@ -9,7 +9,45 @@ Welcome to the official support and documentation desk for **MoneyMath Pro**, de
 
 ---
 
-## 1. Frequently Asked Questions (FAQ)
+## 1. Feature Showcase & Visual Guides
+
+Discover how **MoneyMath Pro** simplifies your personal and business financial planning:
+
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 my-6 not-prose">
+  <div class="rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 p-3 flex flex-col items-center">
+    <img src="/assets/moneymathpro/financial-tools.png" alt="32+ Powerful Financial Tools" class="rounded-lg shadow-sm w-full object-cover" loading="lazy" />
+    <h4 class="mt-3 text-sm font-semibold text-slate-900 dark:text-slate-100">32+ Financial Calculators</h4>
+    <p class="text-xs text-slate-500 dark:text-slate-400 text-center mt-1">Banking, investments, NBR income tax, and mobile money in one unified suite.</p>
+  </div>
+
+  <div class="rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 p-3 flex flex-col items-center">
+    <img src="/assets/moneymathpro/loans-poster.png" alt="Loans With Confidence" class="rounded-lg shadow-sm w-full object-cover" loading="lazy" />
+    <h4 class="mt-3 text-sm font-semibold text-slate-900 dark:text-slate-100">Loans & EMI Calculations</h4>
+    <p class="text-xs text-slate-500 dark:text-slate-400 text-center mt-1">Plan personal, auto, and home loans with complete monthly breakdown schedules.</p>
+  </div>
+
+  <div class="rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 p-3 flex flex-col items-center">
+    <img src="/assets/moneymathpro/ai-advisor.png" alt="Smart Financial Advisor" class="rounded-lg shadow-sm w-full object-cover" loading="lazy" />
+    <h4 class="mt-3 text-sm font-semibold text-slate-900 dark:text-slate-100">Financial Advisor & Insights</h4>
+    <p class="text-xs text-slate-500 dark:text-slate-400 text-center mt-1">Intelligent financial tips, savings goals, and smart advice calculated locally.</p>
+  </div>
+
+  <div class="rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 p-3 flex flex-col items-center">
+    <img src="/assets/moneymathpro/expense-tracker.png" alt="Every Money Expense Tracker" class="rounded-lg shadow-sm w-full object-cover" loading="lazy" />
+    <h4 class="mt-3 text-sm font-semibold text-slate-900 dark:text-slate-100">Expense Tracker & Budgets</h4>
+    <p class="text-xs text-slate-500 dark:text-slate-400 text-center mt-1">Log income and expenses with 100% privacy and zero external tracking.</p>
+  </div>
+
+  <div class="rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 p-3 flex flex-col items-center">
+    <img src="/assets/moneymathpro/money-made-clearer.png" alt="Money Made Clearer" class="rounded-lg shadow-sm w-full object-cover" loading="lazy" />
+    <h4 class="mt-3 text-sm font-semibold text-slate-900 dark:text-slate-100">Clear Visual Reports</h4>
+    <p class="text-xs text-slate-500 dark:text-slate-400 text-center mt-1">Understand your financial metrics with intuitive charts and repayment timelines.</p>
+  </div>
+</div>
+
+---
+
+## 2. Frequently Asked Questions (FAQ)
 
 ### Is MoneyMath Pro really 100% offline?
 **Yes!** MoneyMath Pro executes all financial algorithms natively on your phone CPU. It operates completely offline without needing mobile data, Wi-Fi, or an active cloud connection.
@@ -34,7 +72,7 @@ According to Islamic principles, Zakat is mandatory at 2.5% if your total gold o
 
 ---
 
-## 2. Customer Support & Bug Reports
+## 3. Customer Support & Bug Reports
 
 For technical support, feature requests, or bug reports:
 * **Email:** [rakibullhaques@gmail.com](mailto:rakibullhaques@gmail.com)

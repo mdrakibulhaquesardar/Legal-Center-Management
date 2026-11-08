@@ -38,6 +38,10 @@ function validateAppMetadata(data: unknown, dirName: string): AppMetadata {
     email: typeof raw.email === 'string' ? raw.email.trim() : siteConfig.developerEmail,
     website: typeof raw.website === 'string' ? raw.website.trim() : siteConfig.websiteUrl,
     icon: typeof raw.icon === 'string' ? raw.icon.trim() : undefined,
+    banner: typeof raw.banner === 'string' ? raw.banner.trim() : undefined,
+    screenshots: Array.isArray(raw.screenshots)
+      ? raw.screenshots.filter((s): s is string => typeof s === 'string' && s.trim().length > 0).map((s) => s.trim())
+      : undefined,
     active: raw.active !== false, // default to true unless explicitly false
   };
 }

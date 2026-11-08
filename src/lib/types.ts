@@ -7,6 +7,8 @@ export interface AppMetadata {
   email?: string;
   website?: string;
   icon?: string;
+  banner?: string;
+  screenshots?: string[];
   active?: boolean;
 }
 
