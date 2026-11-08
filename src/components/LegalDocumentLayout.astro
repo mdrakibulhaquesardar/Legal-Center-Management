@@ -19,9 +19,14 @@ const pageDescription = `${docTitle} for ${app.name} (${app.packageName || 'Mobi
 const currentPath = `/${app.slug}/${doc.slug}`;
 ---
 
-<BaseLayout title={pageTitle} description={pageDescription} currentPath={currentPath}>
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  currentPath={currentPath}
+  currentAppSlug={app.slug}
+>
   <div class="max-w-4xl mx-auto py-2">
-    <!-- Breadcrumb (astro-design-system style) -->
+    <!-- Breadcrumb -->
     <nav class="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 mb-4 no-print">
       <a href="/" class="hover:text-slate-900 dark:hover:text-white transition-colors">
         Legal Center
@@ -31,13 +36,13 @@ const currentPath = `/${app.slug}/${doc.slug}`;
         {app.name}
       </span>
       <span>/</span>
-      <span class="text-slate-900 dark:text-white font-medium">
+      <span class="text-slate-900 dark:text-white font-semibold">
         {docTitle}
       </span>
     </nav>
 
     <!-- Document Header Info Box -->
-    <header class="mb-6 p-4 sm:p-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/40 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+    <header class="mb-6 p-4 sm:p-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/60 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
       <div class="flex items-center gap-3">
         <div class="w-12 h-12 rounded-xl flex-shrink-0 flex items-center justify-center overflow-hidden border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-1">
           {app.icon ? (
@@ -53,9 +58,9 @@ const currentPath = `/${app.slug}/${doc.slug}`;
           <h1 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
             {app.name}
           </h1>
-          <div class="flex flex-wrap items-center gap-2 mt-0.5 text-xs text-slate-500 dark:text-slate-400 font-mono">
+          <div class="flex flex-wrap items-center gap-2 mt-0.5 text-xs text-slate-600 dark:text-slate-400 font-mono">
             {app.packageName && (
-              <span class="bg-white dark:bg-slate-800 px-2 py-0.5 rounded border border-slate-200 dark:border-slate-700">
+              <span class="bg-white dark:bg-slate-800 px-2 py-0.5 rounded border border-slate-200 dark:border-slate-700 font-medium text-slate-800 dark:text-slate-200">
                 {app.packageName}
               </span>
             )}
@@ -65,9 +70,9 @@ const currentPath = `/${app.slug}/${doc.slug}`;
         </div>
       </div>
 
-      <div class="flex flex-col sm:items-end gap-1 text-xs text-slate-500 dark:text-slate-400">
+      <div class="flex flex-col sm:items-end gap-1 text-xs text-slate-600 dark:text-slate-400">
         {doc.lastUpdated && (
-          <span class="font-mono text-slate-700 dark:text-slate-300">
+          <span class="font-mono font-medium text-slate-800 dark:text-slate-200">
             Updated: {doc.lastUpdated}
           </span>
         )}
@@ -89,17 +94,17 @@ const currentPath = `/${app.slug}/${doc.slug}`;
       {doc.lastUpdated && <p class="text-sm">Effective: {doc.lastUpdated}</p>}
     </div>
 
-    <!-- Article Content -->
+    <!-- Article Content: High-contrast text ensured in light and dark mode -->
     <article
-      class="prose prose-slate dark:prose-dark max-w-none leading-relaxed"
+      class="legal-article prose prose-slate dark:prose-invert max-w-none text-slate-900 dark:text-slate-100 leading-relaxed"
       set:html={doc.htmlContent}
     />
 
     <!-- Bottom Navigation -->
     <div class="mt-12 pt-6 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between text-xs text-slate-500 no-print">
-      <a href="/" class="hover:text-slate-900 dark:hover:text-white transition-colors flex items-center gap-1">
+      <a href="/" class="hover:text-slate-900 dark:hover:text-white transition-colors flex items-center gap-1 font-medium">
         <span>←</span>
-        <span>Back to Applications</span>
+        <span>Back to All Applications</span>
       </a>
 
       <button type="button" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" class="hover:text-slate-900 dark:hover:text-white transition-colors">

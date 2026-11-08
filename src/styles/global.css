@@ -5,15 +5,13 @@
 @layer base {
   :root {
     --bg-main: #ffffff;
-    --bg-surface: #f8fafc;
     --border-color: #e2e8f0;
     --text-main: #0f172a;
-    --text-muted: #64748b;
+    --text-muted: #475569;
   }
 
   .dark {
     --bg-main: #0b0f17;
-    --bg-surface: #111827;
     --border-color: #1e293b;
     --text-main: #f8fafc;
     --text-muted: #94a3b8;
@@ -31,20 +29,76 @@
   }
 }
 
-/* Fresh & Clean Scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+/* Explicit high-contrast rules for legal articles */
+.legal-article,
+.legal-article p,
+.legal-article li,
+.legal-article td,
+.legal-article div {
+  color: #1e293b !important;
+  font-size: 0.95rem;
+  line-height: 1.75;
 }
-::-webkit-scrollbar-track {
-  background: transparent;
+
+.legal-article h1,
+.legal-article h2,
+.legal-article h3,
+.legal-article h4,
+.legal-article strong,
+.legal-article th {
+  color: #0f172a !important;
+  font-weight: 700;
 }
-::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 3px;
+
+.legal-article a {
+  color: #1d4ed8 !important;
+  text-decoration: underline;
 }
-.dark ::-webkit-scrollbar-thumb {
-  background: #334155;
+
+.legal-article code {
+  color: #0f172a !important;
+  background-color: #f1f5f9 !important;
+  padding: 0.15rem 0.35rem;
+  border-radius: 0.25rem;
+  font-size: 0.875em;
+  border: 1px solid #e2e8f0;
+}
+
+.legal-article hr {
+  border-color: #e2e8f0 !important;
+  margin: 2rem 0;
+}
+
+/* Dark mode overrides for legal articles */
+.dark .legal-article,
+.dark .legal-article p,
+.dark .legal-article li,
+.dark .legal-article td,
+.dark .legal-article div {
+  color: #cbd5e1 !important;
+}
+
+.dark .legal-article h1,
+.dark .legal-article h2,
+.dark .legal-article h3,
+.dark .legal-article h4,
+.dark .legal-article strong,
+.dark .legal-article th {
+  color: #f8fafc !important;
+}
+
+.dark .legal-article a {
+  color: #60a5fa !important;
+}
+
+.dark .legal-article code {
+  color: #f8fafc !important;
+  background-color: #1e293b !important;
+  border-color: #334155;
+}
+
+.dark .legal-article hr {
+  border-color: #1e293b !important;
 }
 
 /* Print Styles */
