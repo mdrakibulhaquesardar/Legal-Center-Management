@@ -13,3 +13,4 @@ export function url(path = ''): string {
   const cleanPath = path.startsWith('/') ? path : `/${path}`;
   return `${base}${cleanPath}`;
 }
+

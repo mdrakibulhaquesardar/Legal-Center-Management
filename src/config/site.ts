@@ -17,5 +17,5 @@ export const siteConfig: SiteConfig = {
   description: "Official privacy policies, terms of service, data deletion instructions, and support center for mobile applications developed by NexCode Studio.",
   logoText: "NexCode Legal",
   githubUrl: "https://github.com/mdrakibulhaquesardar/Legal-Center-Management",
-  playStoreUrl: "https://play.google.com/store/apps/dev",
+  playStoreUrl: "https://play.google.com/store/apps/developer?id=NexCode+Studio",
 };

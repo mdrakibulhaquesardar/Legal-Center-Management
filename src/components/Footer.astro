@@ -18,6 +18,16 @@ const currentYear = new Date().getFullYear();
           {siteConfig.developerEmail}
         </a>
       )}
+      {siteConfig.playStoreUrl && (
+        <a
+          href={siteConfig.playStoreUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:text-slate-900 dark:hover:text-white transition-colors"
+        >
+          Google Play ↗
+        </a>
+      )}
       <span>© {currentYear}</span>
       <a href="#" class="hover:text-slate-900 dark:hover:text-white transition-colors">
         Back to top ↑
