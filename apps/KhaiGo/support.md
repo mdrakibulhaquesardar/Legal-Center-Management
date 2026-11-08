@@ -86,3 +86,4 @@ For technical assistance, restaurant partnership requests, or bug reports:
 * **Web App & Info:** [https://brilliant-otter-bc6f46.netlify.app](https://brilliant-otter-bc6f46.netlify.app)
 * **Open Source Repository:** [https://github.com/mdrakibulhaquesardar/khai_go](https://github.com/mdrakibulhaquesardar/khai_go)
 * **Location:** Rajshahi, Bangladesh
+

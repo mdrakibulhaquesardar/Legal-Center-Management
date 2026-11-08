@@ -1,0 +1,11 @@
+{
+  "name": "Dozora: Better Sleep",
+  "slug": "dozora",
+  "packageName": "com.nexcode.studio.dozora",
+  "description": "Peaceful Sleep & Meditation — Offline nature recordings, soothing ambient soundscapes, breathing exercises, and customizable sleep timers with zero ad interruptions.",
+  "developer": "NexCode Studio",
+  "email": "relaxnightapp@gmail.com",
+  "website": "https://dozora.vercel.app",
+  "icon": "/assets/dozora/logo.png",
+  "active": true
+}

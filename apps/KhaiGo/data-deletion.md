@@ -70,3 +70,4 @@ For inquiries or follow-ups regarding data deletion, GDPR rights, or data safety
 * **Official Support Email:** [rakibul.nexcode@gmail.com](mailto:rakibul.nexcode@gmail.com)
 * **Official Website:** [https://brilliant-otter-bc6f46.netlify.app](https://brilliant-otter-bc6f46.netlify.app)
 * **Headquarters:** Rajshahi, Bangladesh
+

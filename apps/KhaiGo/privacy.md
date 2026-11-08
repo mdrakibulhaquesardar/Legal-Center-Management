@@ -123,3 +123,4 @@ If you have questions, feedback, or inquiries regarding this Privacy Policy:
 * **App Website:** [https://brilliant-otter-bc6f46.netlify.app](https://brilliant-otter-bc6f46.netlify.app)
 * **Open Source Repository:** [https://github.com/mdrakibulhaquesardar/khai_go](https://github.com/mdrakibulhaquesardar/khai_go)
 * **Headquarters:** Rajshahi, Bangladesh
+
