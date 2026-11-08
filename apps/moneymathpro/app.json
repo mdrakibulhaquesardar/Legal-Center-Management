@@ -1,0 +1,11 @@
+{
+  "name": "MoneyMath Pro",
+  "slug": "moneymathpro",
+  "packageName": "com.nexcode.studio.moneymath.pro",
+  "description": "Your Trusted Finance Calculator — 32+ smart calculators for Loan EMI, DPS, FDR, NBR Income Tax, Zakat, and Mobile Banking.",
+  "developer": "NexCode Studio",
+  "email": "rakibullhaques@gmail.com",
+  "website": "https://moneymathpro.vercel.app",
+  "icon": "/icons/moneymathpro.svg",
+  "active": true
+}
