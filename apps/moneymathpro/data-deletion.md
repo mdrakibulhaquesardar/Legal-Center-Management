@@ -41,3 +41,4 @@ If you wish to request the removal of any anonymous diagnostic logs or push noti
 If you have questions regarding data privacy and deletion:
 * **Email:** [rakibullhaques@gmail.com](mailto:rakibullhaques@gmail.com)
 * **Developer:** NexCode Studio
+

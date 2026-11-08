@@ -40,3 +40,4 @@ For technical support, feature requests, or bug reports:
 * **Email:** [rakibullhaques@gmail.com](mailto:rakibullhaques@gmail.com)
 * **Developer:** NexCode Studio
 * **Official Website:** [https://moneymathpro.vercel.app](https://moneymathpro.vercel.app)
+

@@ -53,3 +53,4 @@ For any questions regarding these Terms of Service:
 * **Developer:** NexCode Studio
 * **Email:** [rakibullhaques@gmail.com](mailto:rakibullhaques@gmail.com)
 * **Website:** [https://moneymathpro.vercel.app](https://moneymathpro.vercel.app)
+
